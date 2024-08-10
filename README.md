@@ -28,3 +28,7 @@ python3 finetune.py --model=hugohrban/progen2-small --train_file=train_data.txt 
 python3 sample.py --model=hugohrban/progen2-small --device=cuda --batch_size=8 --iters=1 --max_length=512 --t=1.0 --k=10 --prompt="1MEVVIVTGMSGAGK"
 ```
 
+###模型评估
+'''bash
+python3 evaluate.py
+'''
