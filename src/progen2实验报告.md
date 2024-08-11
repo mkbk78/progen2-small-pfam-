@@ -68,7 +68,58 @@
 
 - **上下文窗口大小**：1024个令牌
 
-  <img src="C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20240810003137462.png" alt="image-20240810003137462" style="zoom: 80%;" />
+  <img src="C:\Users\admin\Desktop\pic\image-20240810003137462.png" alt="image-20240810003137462" style="zoom: 80%;" />
+
+## 2.3模型结构图
+
+![export (1)](C:\Users\admin\Desktop\pic\export (1).png)
+
+## 2.4微调过程
+
+```
+这段代码是一个使用 PyTorch 和 Hugging Face 的 `transformers` 库来进行特定模型（`ProGenForCausalLM`，这是一个因果语言模型）微调的脚本。以下是微调过程的关键步骤：
+
+1. **导入必要的库**：代码首先导入了一些必要的 Python 库，如 `sys`, `os`, `argparse` 等，以及 PyTorch 和 `transformers` 库中用于数据处理、模型训练和优化的模块。
+
+2. **配置日志**：使用 `logging` 库来配置日志，记录训练过程中的信息。
+
+3. **定义数据集类**：`Protein_dataset` 类继承自 `torch.utils.data.Dataset`，重写了 `__init__`, `__len__`, 和 `__getitem__` 方法，用于创建数据集并进行数据加载。
+
+4. **加载数据**：`load_data` 函数用于从文件中加载数据，并提取序列和前缀。
+
+5. **初始化新嵌入**：`init_new_embeddings` 函数在模型的词嵌入矩阵中初始化新的嵌入向量，以适应新的前缀。
+
+6. **获取学习率调度器**：`get_lr_schedule` 函数根据提供的参数来创建一个学习率调度器，用于在训练过程中调整学习率。
+
+7. **训练循环**：`train_epoch` 函数定义了一个训练循环，其中包括：
+   - 将模型设置为训练模式。
+   - 通过 `DataLoader` 加载数据。
+   - 计算损失并进行反向传播。
+   - 更新模型参数和学习率。
+   - 使用 `tqdm` 库来显示训练进度。
+
+8. **评估模型**：`evaluate` 函数用于在给定数据集上评估模型的性能，计算损失。
+
+9. **训练函数**：`train` 函数是整个微调流程的核心，它负责：
+   - 初始化训练损失和评估损失列表。
+   - 遍历每个 epoch，调用 `train_epoch` 和 `evaluate` 函数。
+   - 保存模型的 checkpoint，包括模型参数、分词器、优化器和调度器的状态。
+
+10. **主函数**：`main` 函数设置了参数解析器，用于解析命令行参数，并调用 `train` 函数来启动训练过程。
+
+11. **设置随机种子和设备**：在 `main` 函数中，设置了随机种子以确保结果的再现性，并根据可用的硬件选择 CPU 或 CUDA 设备。
+
+12. **模型和分词器加载**：加载预训练的模型和分词器。
+
+13. **超参数打印和优化器创建**：打印出使用的超参数，并根据这些参数创建优化器。
+
+14. **训练前评估**：在训练开始之前，如果指定，会进行一次评估，以获取基线性能。
+
+15. **启动训练**：调用 `train` 函数开始训练，并在训练结束后打印训练和评估的损失。
+
+整个微调过程被封装在一个 Python 脚本中，可以通过命令行参数来配置和启动。这个脚本提供了一个完整的训练流程，包括数据加载、模型训练、评估、保存模型以及超参数配置。
+
+```
 
 
 
@@ -76,7 +127,7 @@
 
 将微调后的模型进行Recovery Rate指标的评估，得出
 
-![image-20240811002403722](C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20240811002403722.png)
+![image-20240811002403722](C:\Users\admin\Desktop\pic\image-20240811002403722.png)
 
 根据评估指标数据，我们可以做出以下分析：
 
@@ -96,7 +147,7 @@
 
 以<|pf02680|>家族的'1MIAVKRVVLDVL'进行生成蛋白质序列
 
-![image-20240811011006224](C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20240811011006224.png)
+![image-20240811011006224](C:\Users\admin\Desktop\pic\image-20240811011006224.png)
 
 生成结果如下
 
@@ -113,7 +164,7 @@ MIAVKRVVLDVLAPIKLVKFLNELKDDGHPSEGIEYVSEEPELIQIGAK
 
 与pf02680家族下载的序列进行比对，相似度如下
 
-![image-20240811012722263](C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20240811012722263.png)
+![image-20240811012722263](C:\Users\admin\Desktop\pic\image-20240811012722263.png)
 
 ## 4.1**结果与分析**
 
