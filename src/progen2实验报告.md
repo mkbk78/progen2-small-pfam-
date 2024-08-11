@@ -191,6 +191,8 @@ MIAVKRVVLDVLAPIKLVKFLNELKDDGHPSEGIEYVSEEPELIQIGAK
 
 3. **生物学功能未知**: 虽然生成的序列与已知家族序列相似，但尚不清楚这些序列在实际生物学功能中的表现。进一步的实验验证和功能预测分析可能需要以确认生成序列的实际应用价值。
 
+注：图片在pic文件夹里
+
 # 5.全部数据代码见：
 
 #### [mkbk78/progen2-small-pfam-: progen2-small模型对于PF00001,PF00257,PF02680,PF12365,PF12366进行微调后的模型 (github.com)](https://github.com/mkbk78/progen2-small-pfam-)
