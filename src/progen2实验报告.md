@@ -72,7 +72,7 @@
 
 ## 2.3模型结构图
 
-<img src="pic\export(1).png" />
+  <img src="src/pic/export (1).png" />
 
 ## 2.4微调过程
 
