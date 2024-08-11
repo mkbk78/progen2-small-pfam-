@@ -74,7 +74,7 @@
 
   <img src="pic/export (1).png" />
 
-## 2.4微调过程
+## 2.4小样本训练过程
 
 ```
 download_data：从pfam平台下载PF00001,PF00257,PF02680,PF12365,PF12366的fasta格式数据
