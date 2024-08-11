@@ -68,11 +68,11 @@
 
 - **上下文窗口大小**：1024个令牌
 
-  <img src="C:\Users\admin\Desktop\pic\image-20240810003137462.png" alt="image-20240810003137462" style="zoom: 80%;" />
+  <img src="pic\image-20240810003137462.png" />
 
 ## 2.3模型结构图
 
-![export (1)](C:\Users\admin\Desktop\pic\export (1).png)
+<img src="pic\export(1).png" />
 
 ## 2.4微调过程
 
@@ -96,7 +96,7 @@ prepare_data:按train和test数据集8：2的比例，将fasta数据打乱分别
 
 将微调后的模型进行Recovery Rate指标的评估，得出
 
-![image-20240811002403722](C:\Users\admin\Desktop\pic\image-20240811002403722.png)
+<img src="pic\image-20240811002403722.png" />
 
 根据评估指标数据，我们可以做出以下分析：
 
@@ -115,8 +115,8 @@ prepare_data:按train和test数据集8：2的比例，将fasta数据打乱分别
 # 4.案例分析
 
 以<|pf02680|>家族的'1MIAVKRVVLDVL'进行生成蛋白质序列
+<img src="pic\image-20240811011006224.png" />
 
-![image-20240811011006224](C:\Users\admin\Desktop\pic\image-20240811011006224.png)
 
 生成结果如下
 
@@ -133,7 +133,7 @@ MIAVKRVVLDVLAPIKLVKFLNELKDDGHPSEGIEYVSEEPELIQIGAK
 
 与pf02680家族下载的序列进行比对，相似度如下
 
-![image-20240811012722263](C:\Users\admin\Desktop\pic\image-20240811012722263.png)
+<img src="pic\image-20240811012722263.png" />
 
 ## 4.1**结果与分析**
 
